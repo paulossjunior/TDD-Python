@@ -1,6 +1,5 @@
 
 from behave import *
-from nose.tools import assert_equals
 from src.BDD.application.calculator import Calculator
 
 @given(u'I am using the calculator')
