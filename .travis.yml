@@ -2,19 +2,30 @@ language: python
 python:
   - "3.4"
   
-before_install:
-  - wget http://repo1.maven.org/maven2/org/codehaus/sonar/runner/sonar-runner-dist/2.4/sonar-runner-dist-2.4.zip
-  - unzip sonar-runner-dist-2.4.zip
+jdk:
+  - oraclejdk8
+addons:
+  apt:
+    packages:
+      - oracle-java8-installer  
+  sonarqube:
+    organization: "paulossjunior-github"
+    token:
+      secure: 9b9688155add828b5d987d8e56c7c30d499fb00f  
 
 branches:
   only:
     - master
-    - desenvolvimwento
+    - desenvolvimento
+
+before_script:
+  - export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+
 install:
   - pip install -r requirements.txt
+  - sonar-scanner 
+
 script: 
   - behave src/BDD/test/features/
   - nosetests src/TDD/test
 
-after_script:
- - ./sonar-runner-2.4/bin/sonar-runner
