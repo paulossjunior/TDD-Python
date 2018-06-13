@@ -1,4 +1,7 @@
 # TDD-Python
+
+https://sonarcloud.io/api/project_badges/measure?project=TDD-Python&metric=bugs
+
 Respositório contendo códigos que implementam as técnicas de TDD e BDD em python
 
 ##Referecias para o Python:
