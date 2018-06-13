@@ -1,14 +1,13 @@
 language: python
 python:
-  - "3.4"
-  
+  - "3.4"  
 jdk:
   - oraclejdk8
 addons:
   apt:
     packages:
       - oracle-java8-installer  
-  sonarqube:
+sonarqube:
     organization: "paulossjunior-github"
     token:
       secure: 9b9688155add828b5d987d8e56c7c30d499fb00f  
@@ -23,9 +22,7 @@ before_script:
 
 install:
   - pip install -r requirements.txt
-  - sonar-scanner 
 
 script: 
   - behave src/BDD/test/features/
-  - nosetests src/TDD/test
-
+  - sonar-scanner 
