@@ -27,6 +27,6 @@ install:
 
 script:
   - behave src/BDD/test/features/
-  - sonar-scanner
+  - sonar-scanner > "sonnar.txt"
   - ls
 
