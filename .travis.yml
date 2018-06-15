@@ -1,5 +1,7 @@
 language: python
+
 dist: trusty
+sudo: required
 
 python:
   - "3.4"  
@@ -27,8 +29,8 @@ install:
 
 script:
   - behave src/BDD/test/features/
-  - sonar-scanner > sonar-scanner.txt
-  - ls
-  - cat sonar-scanner.txt
+  - sonar-scanner > sonar.txt
+  - sh buildbreaksonar.sh sonar.txt 9b9688155add828b5d987d8e56c7c30d499fb00f https://sonarcloud.io
+  - rm sonar.txt 
   
 
